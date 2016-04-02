@@ -1,0 +1,252 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hey DJ!</title>
+    <link rel="stylesheet" href="themes/heydj.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/setup.js"></script>
+
+    <!--Need to get this working for google maps
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2HIc3MP42twszw9Ebwi8mFwJ1NKkKIeM &libraries=places"></script>
+    -->
+</head>
+
+<body>
+    <!--Home page -->
+    <div data-role="page" data-theme="a" id="home">
+        <div data-role="header">
+            <img class="banner" src="./themes/images/banners/1168-00-06.jpg">
+        </div>
+        <div data-role="content" class="ui-content">
+            <h1 class="title">Hey DJ!</h1>
+            <a href="#partySetup" class="ui-btn" data-transition="slide">I'M A DJ</a>
+            <a href="#listenerHome" class="ui-btn" data-transition="slide">JUST LISTENING</a>
+
+        </div>
+        <div data-role="footer">
+            <h2>&copy; TEAM666 2016 LLC</h2>
+        </div>
+    </div>
+
+
+    <!--DJ Section 
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    -->
+
+    <!--DJ: Party Set Up page -->
+    <div data-role="page" data-theme="a" id="partySetup">
+        <div data-role="header">
+            <img class="banner" src="./themes/images/banners/138550457.jpg">
+        </div>
+        <div data-role="content" class="ui-content">
+            <h2 class="title">Get the party started!</h2>
+            <a href="#home" data-role="button" data-transition="slide" data-mini="true">BACK</a>
+            <h4></h4>
+            <label for="basic">EVENT NAME:</label>
+            <input type="text" name="eventName" id="basic" value="" />
+            <label for="basic">DJ NAME:</label>
+            <input type="text" name="djName" id="basic" value="" />
+
+            <!--Map for entering location-->
+            <label for="basic">LOCATION:</label>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d8549.571247094802!2d-74.02474622623163!3d40.745968418440796!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1455060126238" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <h4></h4>
+            <label for="basic">SETTINGS:</label>
+            <label>
+                <input onclick="getCode();" type="checkbox" name="accessCheckbox" data-mini="true" />PRIVATE EVENT</label>
+            <h4 id="partyCode" style="display:none;">hello world</h4>
+            <label>
+                <input type="checkbox" name="playlistCheckbox" data-mini="true" />SET PLAYLIST</label>
+            <h4></h4>
+            <a href="#inPartyDJ" class="ui-btn" data-transition="slide">CREATE</a>
+        </div>
+
+
+        <div data-role="footer">
+            <h2>&copy; TEAM666 2016 LLC</h2>
+        </div>
+    </div>
+
+    <!--DJ: In Party page -->
+    <div data-role="page" data-theme="a" id="inPartyDJ">
+        <div data-role="header">
+            <img class="banner" src="./themes/images/banners/5b3fc8f274.jpg">
+        </div>
+        <div data-role="content" class="ui-content">
+            <h1 class="title">Let's Party!</h1>
+            <h4></h4>
+            <h2>Requests:</h2>
+
+            <!--Song 1-->
+            <svg viewbox="0 0 200 200">
+                <circle cx="50" cy="50" r="45" fill="#1d1d1d" />
+                <path fill="none" stroke-linecap="round" stroke-width="5" stroke="#fff" stroke-dasharray="125.6,125.6" d="M50 10
+           a 40 40 0 0 1 0 80
+           a 40 40 0 0 1 0 -80" />
+                <text x="50" y="50" text-anchor="middle" dy="7" font-size="20" id="count">50%</text>
+            </svg>
+            <h4 class="info" style="margin-top:-80px;">This is some random song.</h4>
+            <h4 class="info" style="margin-top:-70px, margin-bottom:20px;">- Random Artist</h4>
+
+
+            <!--Song 2-->
+            <svg viewbox="0 0 200 200">
+                <circle cx="50" cy="50" r="45" fill="#1d1d1d" />
+                <path fill="none" stroke-linecap="round" stroke-width="5" stroke="#fff" stroke-dasharray="125.6,125.6" d="M50 10
+           a 40 40 0 0 1 0 80
+           a 40 40 0 0 1 0 -80" />
+                <text x="50" y="50" text-anchor="middle" dy="7" font-size="20" id="count">50%</text>
+            </svg>
+            <h4 class="info" style="margin-top:-80px;">This is some random song.</h4>
+            <h4 class="info" style="margin-top:-70px, margin-bottom:20px;">- Random Artist</h4>
+
+            <script>
+                var count = $(('#count'));
+                $({
+                    Counter: 0
+                }).animate({
+                    Counter: count.text()
+                }, {
+                    duration: 5000,
+                    easing: 'linear',
+                    step: function() {
+                        count.text(Math.ceil(this.Counter) + "%");
+                    }
+                });
+
+            </script>
+
+            <h4></h4>
+            <a href="#home" data-role="button" data-transition="slide" data-mini="true">LEAVE</a>
+        </div>
+        <div data-role="footer">
+            <h2>&copy; TEAM666 2016 LLC</h2>
+        </div>
+    </div>
+
+    <!--Listener Section 
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    -->
+
+    <!--Listener: Find parties page -->
+    <div data-role="page" data-theme="a" id="listenerHome">
+        <div data-role="header">
+            <img class="banner" src="./themes/images/banners/5b3fc8f274.jpg">
+        </div>
+        <div data-role="content" class="ui-content">
+            <h1 class="title">Looking to party?</h1>
+            <a href="#findParties" class="ui-btn" data-transition="slide">PARTIES NEAR ME</a>
+            <a href="#partyCode" class="ui-btn" data-transition="slide">ENTER PARTY CODE</a>
+
+            <h4></h4>
+            <a href="#home" data-role="button" data-transition="slide" data-mini="true">BACK</a>
+        </div>
+        <div data-role="footer">
+            <h2>&copy; TEAM666 2016 LLC</h2>
+        </div>
+    </div>
+
+    <!--Listener: Parties near me -->
+    <div data-role="page" data-theme="a" id="findParties">
+        <div data-role="header">
+            <img class="banner" src="./themes/images/banners/130899618.jpg">
+        </div>
+        <div data-role="content" class="ui-content">
+            <h1 class="title">Parties Nearby</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d8549.571247094802!2d-74.02474622623163!3d40.745968418440796!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1455060126238" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <h4></h4>
+            <a href="#inPartyListener" class="ui-btn" data-transition="slide">JOIN</a>
+            <h4></h4>
+            <a href="#listenerHome" data-role="button" data-transition="slide" data-mini="true">BACK</a>
+        </div>
+        <div data-role="footer">
+            <h2>&copy; TEAM666 2016 LLC</h2>
+        </div>
+    </div>
+
+    <!--Listener: Enter Party Code -->
+    <div data-role="page" data-theme="a" id="partyCode">
+        <div data-role="header">
+            <img class="banner" src="./themes/images/banners/130899618.jpg">
+        </div>
+        <div data-role="content" class="ui-content">
+            <h1 class="title">Enter Party Code</h1>
+            <label for="basic">PRIVATE CODE:</label>
+            <input type="text" name="partyCode" id="basic" value="" />
+            <h4></h4>
+            <a href="#inPartyListener" class="ui-btn" data-transition="slide">JOIN</a>
+            <h4></h4>
+            <a href="#listenerHome" data-role="button" data-transition="slide" data-mini="true">BACK</a>
+        </div>
+        <div data-role="footer">
+            <h2>&copy; TEAM666 2016 LLC</h2>
+        </div>
+    </div>
+
+    <!--Listener: In Party page -->
+    <div data-role="page" data-theme="a" id="inPartyListener">
+        <div data-role="header">
+            <img class="banner" src="./themes/images/banners/5b3fc8f274.jpg">
+        </div>
+        <div data-role="content" class="ui-content">
+            <h1 class="title">Turn Up!</h1>
+            <h4></h4>
+            <h2>Requests:</h2>
+
+            <!--Song 1-->
+            <svg viewbox="0 0 200 200">
+                <circle cx="50" cy="50" r="45" fill="#1d1d1d" />
+                <path fill="none" stroke-linecap="round" stroke-width="5" stroke="#fff" stroke-dasharray="125.6,125.6" d="M50 10
+           a 40 40 0 0 1 0 80
+           a 40 40 0 0 1 0 -80" />
+                <text x="50" y="50" text-anchor="middle" dy="7" font-size="20" id="count">50%</text>
+            </svg>
+            <h4 class="info" style="margin-top:-80px;">This is some random song.</h4>
+            <h4 class="info" style="margin-top:-70px, margin-bottom:20px;">- Random Artist</h4>
+
+
+            <!--Song 2-->
+            <svg viewbox="0 0 200 200">
+                <circle cx="50" cy="50" r="45" fill="#1d1d1d" />
+                <path fill="none" stroke-linecap="round" stroke-width="5" stroke="#fff" stroke-dasharray="125.6,125.6" d="M50 10
+           a 40 40 0 0 1 0 80
+           a 40 40 0 0 1 0 -80" />
+                <text x="50" y="50" text-anchor="middle" dy="7" font-size="20" id="count">50%</text>
+            </svg>
+            <h4 class="info" style="margin-top:-80px;">This is some random song.</h4>
+            <h4 class="info" style="margin-top:-70px, margin-bottom:20px;">- Random Artist</h4>
+
+            <script>
+                var count = $(('#count'));
+                $({
+                    Counter: 0
+                }).animate({
+                    Counter: count.text()
+                }, {
+                    duration: 5000,
+                    easing: 'linear',
+                    step: function() {
+                        count.text(Math.ceil(this.Counter) + "%");
+                    }
+                });
+
+            </script>
+
+            <h4></h4>
+            <a href="#home" data-role="button" data-transition="slide" data-mini="true">LEAVE</a>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+
+        </script>
+</body>
+
+</html>
